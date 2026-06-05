@@ -16,7 +16,7 @@ class Product extends Model
     public function unit()         { return $this->belongsTo(Unit::class); }
     public function orderItems()   { return $this->hasMany(OrderItem::class); }
 
-    // итоговая цена с учётом действующей скидки
+    
     public function getFinalPriceAttribute(): float
     {
         return round($this->price * (100 - $this->discount) / 100, 2);

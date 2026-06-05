@@ -20,7 +20,7 @@ class Order extends Model
     public function client()      { return $this->belongsTo(User::class, 'user_id'); }
     public function items()       { return $this->hasMany(OrderItem::class); }
 
-    // "Артикул заказа" в формате исходных данных: АРТИКУЛ, кол-во, АРТИКУЛ, кол-во
+    
     public function getCompositionAttribute(): string
     {
         return $this->items

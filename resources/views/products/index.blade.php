@@ -29,9 +29,7 @@
     }
     .product-card.clickable { cursor: pointer; }
     .product-card.clickable:hover { outline: 2px solid var(--accent); }
-    /* подсветка по размеру действующей скидки */
     .product-card.big-discount { background: var(--discount-bg); }
-    /* товара нет на складе */
     .product-card.out-of-stock { background: var(--out-of-stock-bg); }
     .photo-box {
         width: 130px;
@@ -84,7 +82,7 @@
 </div>
 
 @if ($canFilter)
-    {{-- поиск, сортировка и фильтрация работают в реальном времени и применяются совместно --}}
+    
     <form method="GET" action="{{ route('products.index') }}" id="filterForm" class="toolbar">
         <div class="grow">
             <label for="search">Поиск по всем текстовым данным</label>
@@ -143,7 +141,7 @@
             <div>Поставщик: {{ $product->supplier->name }}</div>
             <div>Цена:
                 @if ($product->discount > 0)
-                    {{-- основная цена перечёркнута красным, рядом итоговая чёрным --}}
+                    
                     <span class="price-old">{{ number_format($product->price, 2, ',', ' ') }} руб.</span>
                     <span class="price-final">{{ number_format($product->final_price, 2, ',', ' ') }} руб.</span>
                 @else
@@ -179,7 +177,6 @@
 
 @if ($canFilter)
 <script>
-    // поиск, фильтрация и сортировка применяются сразу, без кнопки «Найти»
     const filterForm = document.getElementById('filterForm');
     const searchInput = document.getElementById('search');
     let debounceTimer = null;
@@ -193,7 +190,6 @@
         document.getElementById(id).addEventListener('change', () => filterForm.submit());
     });
 
-    // курсор остаётся в строке поиска после перезагрузки страницы
     if (searchInput.value) {
         searchInput.focus();
         searchInput.setSelectionRange(searchInput.value.length, searchInput.value.length);

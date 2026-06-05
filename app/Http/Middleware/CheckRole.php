@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 
 class CheckRole
 {
-    /**
-     * Доступ к маршруту только для перечисленных ролей.
-     * Пример: ->middleware('role:Администратор,Менеджер')
-     */
+    
+
+
+
     public function handle(Request $request, Closure $next, string ...$roles)
     {
         $user = session('user');

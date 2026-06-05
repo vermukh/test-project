@@ -48,7 +48,7 @@
         <div class="grid">
             @if ($product)
                 <div>
-                    {{-- при редактировании ID доступен только для чтения --}}
+                    
                     <label for="id">ID товара</label>
                     <input type="text" id="id" value="{{ $product->id }}" readonly
                            style="background:#eee" title="ID присваивается автоматически и не изменяется">
@@ -152,7 +152,6 @@
 </div>
 
 <script>
-    // предпросмотр выбранного изображения до сохранения
     document.getElementById('photo').addEventListener('change', function () {
         if (this.files && this.files[0]) {
             document.getElementById('photoPreview').src = URL.createObjectURL(this.files[0]);

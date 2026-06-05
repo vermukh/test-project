@@ -21,10 +21,10 @@ class ProductController extends Controller
 
         $query = Product::with(['category', 'manufacturer', 'supplier', 'unit']);
 
-        // поиск, сортировка и фильтрация доступны только менеджеру и администратору
+        
         if ($canFilter) {
             if ($search = trim((string) $request->input('search'))) {
-                // поиск по всем текстовым атрибутам, в том числе по связанным таблицам
+                
                 $query->where(function ($q) use ($search) {
                     $like = '%' . $search . '%';
                     $q->where('name', 'like', $like)
@@ -90,7 +90,7 @@ class ProductController extends Controller
         $data = $this->validated($request, $product->id);
 
         if ($request->hasFile('photo')) {
-            // при замене изображения старое фото удаляется из папки
+            
             if ($product->photo && file_exists(public_path($product->photo))) {
                 unlink(public_path($product->photo));
             }
@@ -104,7 +104,7 @@ class ProductController extends Controller
 
     public function destroy(Product $product)
     {
-        // товар, который присутствует в заказе, удалить нельзя
+        
         if ($product->orderItems()->exists()) {
             return redirect()->route('products.index')
                 ->with('error', 'Удаление невозможно: товар «' . $product->name
@@ -166,10 +166,10 @@ class ProductController extends Controller
         ]);
     }
 
-    /**
-     * Сохраняет фото в папку с приложением (public/images),
-     * уменьшая его до ограничения 300x200 пикселей. Возвращает путь для БД.
-     */
+    
+
+
+
     private function savePhoto(Request $request, string $article): string
     {
         $file = $request->file('photo');

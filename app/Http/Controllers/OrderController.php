@@ -35,7 +35,7 @@ class OrderController extends Controller
 
         DB::transaction(function () use ($data, $items) {
             $order = Order::create($data + [
-                // код для получения генерируется автоматически
+                
                 'receive_code' => random_int(100, 999),
             ]);
             $this->saveItems($order, $items);
@@ -60,7 +60,7 @@ class OrderController extends Controller
 
     public function destroy(Order $order)
     {
-        $order->delete(); // позиции удаляются каскадно (FK ON DELETE CASCADE)
+        $order->delete(); 
 
         return redirect()->route('orders.index')
             ->with('success', 'Заказ №' . $order->id . ' удалён.');
@@ -74,10 +74,10 @@ class OrderController extends Controller
         ];
     }
 
-    /**
-     * Валидация формы заказа. Поле «артикул» принимает состав заказа
-     * в формате исходных данных: АРТИКУЛ, количество, АРТИКУЛ, количество.
-     */
+    
+
+
+
     private function validated(Request $request): array
     {
         $data = $request->validate([
@@ -97,7 +97,7 @@ class OrderController extends Controller
             'delivery_date.after_or_equal' => 'Дата выдачи не может быть раньше даты заказа.',
         ]);
 
-        // разбор состава: пары "артикул, количество"
+        
         $parts = array_map('trim', explode(',', $data['composition']));
         if (count($parts) % 2 !== 0) {
             return $this->compositionError();

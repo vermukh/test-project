@@ -70,7 +70,6 @@ install_extensions() {
             if [[ ${#packages[@]} -gt 0 ]]; then
                 sudo apt-get update
                 if ! sudo apt-get install -y "${packages[@]}"; then
-                    # fallback на неверсированные пакеты
                     local fallback=()
                     for ext in "${missing[@]}"; do
                         case "$ext" in
@@ -101,7 +100,6 @@ install_extensions() {
             ;;
     esac
 
-    # Финальная проверка после попытки установки
     local still_missing=()
     for ext in "${required[@]}"; do
         module_loaded "$ext" || still_missing+=("$ext")

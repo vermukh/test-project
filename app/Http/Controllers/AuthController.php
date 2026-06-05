@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-    // окно входа — первое, что видит пользователь
+    
     public function showLogin()
     {
         if (session()->has('user')) {
@@ -47,7 +47,7 @@ class AuthController extends Controller
             ->with('success', 'Добро пожаловать, ' . $user->full_name . '!');
     }
 
-    // вход в роли гостя — без авторизации
+    
     public function guest()
     {
         session()->forget('user');
@@ -55,7 +55,7 @@ class AuthController extends Controller
         return redirect()->route('products.index');
     }
 
-    // выход на главный экран — окно входа
+    
     public function logout()
     {
         session()->forget('user');

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {{-- заголовок окна соответствует назначению страницы --}}
+    
     <title>@yield('title') — СтройМатериалы</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
     <style>
@@ -62,7 +62,6 @@
         .btn-dark:hover { background: var(--graphite); }
         .btn-danger { background: #b3372f; }
         .btn-danger:hover { background: #92281f; }
-        /* окна сообщений: тип, заголовок, пиктограмма */
         .flash {
             display: flex;
             gap: 12px;
@@ -98,14 +97,14 @@
 <body>
 <header>
     <div class="brand">
-        {{-- логотип компании на главной форме, из ресурсов --}}
+        
         <img src="{{ asset('images/logo.png') }}" alt="Логотип СтройМатериалы">
         <b>СтройМатериалы</b>
     </div>
     <div class="who">
         @if (session('user'))
             <div>
-                {{-- ФИО пользователя в правом верхнем углу --}}
+                
                 <span class="name">{{ session('user.full_name') }}</span>
                 <span class="role">{{ session('user.role') }}</span>
             </div>
