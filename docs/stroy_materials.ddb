@@ -1,0 +1,773 @@
+{
+  "author": "ДЭ 09.02.07",
+  "project": "stroy_materials",
+  "title": "БД ООО «СтройМатериалы»",
+  "date": "2026-06-04",
+  "database": "mysql",
+  "tables": [
+    {
+      "id": 0,
+      "name": "roles",
+      "x": 560,
+      "y": 40,
+      "color": "#9c27b0",
+      "comment": "Роли пользователей",
+      "indices": [],
+      "fields": [
+        {
+          "id": 0,
+          "name": "id",
+          "type": "INT",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": true,
+          "notNull": true,
+          "increment": true,
+          "comment": ""
+        },
+        {
+          "id": 1,
+          "name": "name",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": true,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "size": 50
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "name": "users",
+      "x": 860,
+      "y": 40,
+      "color": "#9c27b0",
+      "comment": "Пользователи системы",
+      "indices": [],
+      "fields": [
+        {
+          "id": 0,
+          "name": "id",
+          "type": "INT",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": true,
+          "notNull": true,
+          "increment": true,
+          "comment": ""
+        },
+        {
+          "id": 1,
+          "name": "role_id",
+          "type": "INT",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "FK -> roles"
+        },
+        {
+          "id": 2,
+          "name": "full_name",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "size": 150
+        },
+        {
+          "id": 3,
+          "name": "login",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": true,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "size": 100
+        },
+        {
+          "id": 4,
+          "name": "password",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "size": 100
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "categories",
+      "x": 180,
+      "y": 200,
+      "color": "#2f68ad",
+      "comment": "Категории товаров",
+      "indices": [],
+      "fields": [
+        {
+          "id": 0,
+          "name": "id",
+          "type": "INT",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": true,
+          "notNull": true,
+          "increment": true,
+          "comment": ""
+        },
+        {
+          "id": 1,
+          "name": "name",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": true,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "size": 100
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "manufacturers",
+      "x": 180,
+      "y": 400,
+      "color": "#2f68ad",
+      "comment": "Производители",
+      "indices": [],
+      "fields": [
+        {
+          "id": 0,
+          "name": "id",
+          "type": "INT",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": true,
+          "notNull": true,
+          "increment": true,
+          "comment": ""
+        },
+        {
+          "id": 1,
+          "name": "name",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": true,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "size": 100
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "suppliers",
+      "x": 180,
+      "y": 600,
+      "color": "#2f68ad",
+      "comment": "Поставщики",
+      "indices": [],
+      "fields": [
+        {
+          "id": 0,
+          "name": "id",
+          "type": "INT",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": true,
+          "notNull": true,
+          "increment": true,
+          "comment": ""
+        },
+        {
+          "id": 1,
+          "name": "name",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": true,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "size": 100
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "units",
+      "x": 180,
+      "y": 800,
+      "color": "#2f68ad",
+      "comment": "Единицы измерения",
+      "indices": [],
+      "fields": [
+        {
+          "id": 0,
+          "name": "id",
+          "type": "INT",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": true,
+          "notNull": true,
+          "increment": true,
+          "comment": ""
+        },
+        {
+          "id": 1,
+          "name": "name",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": true,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "size": 30
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "products",
+      "x": 520,
+      "y": 330,
+      "color": "#e8702a",
+      "comment": "Товары",
+      "indices": [],
+      "fields": [
+        {
+          "id": 0,
+          "name": "id",
+          "type": "INT",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": true,
+          "notNull": true,
+          "increment": true,
+          "comment": ""
+        },
+        {
+          "id": 1,
+          "name": "article",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": true,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "size": 20
+        },
+        {
+          "id": 2,
+          "name": "name",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "size": 150
+        },
+        {
+          "id": 3,
+          "name": "description",
+          "type": "TEXT",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": ""
+        },
+        {
+          "id": 4,
+          "name": "category_id",
+          "type": "INT",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "FK -> categories"
+        },
+        {
+          "id": 5,
+          "name": "manufacturer_id",
+          "type": "INT",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "FK -> manufacturers"
+        },
+        {
+          "id": 6,
+          "name": "supplier_id",
+          "type": "INT",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "FK -> suppliers"
+        },
+        {
+          "id": 7,
+          "name": "unit_id",
+          "type": "INT",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "FK -> units"
+        },
+        {
+          "id": 8,
+          "name": "price",
+          "type": "DECIMAL",
+          "default": "",
+          "check": "price >= 0",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "size": "10,2"
+        },
+        {
+          "id": 9,
+          "name": "discount",
+          "type": "TINYINT",
+          "default": "0",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": ""
+        },
+        {
+          "id": 10,
+          "name": "stock_quantity",
+          "type": "INT",
+          "default": "0",
+          "check": "stock_quantity >= 0",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": ""
+        },
+        {
+          "id": 11,
+          "name": "photo",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "size": 255
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "pickup_points",
+      "x": 1460,
+      "y": 460,
+      "color": "#3d8b40",
+      "comment": "Пункты выдачи",
+      "indices": [],
+      "fields": [
+        {
+          "id": 0,
+          "name": "id",
+          "type": "INT",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": true,
+          "notNull": true,
+          "increment": true,
+          "comment": ""
+        },
+        {
+          "id": 1,
+          "name": "address",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "size": 255
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "order_statuses",
+      "x": 1460,
+      "y": 60,
+      "color": "#3d8b40",
+      "comment": "Статусы заказов",
+      "indices": [],
+      "fields": [
+        {
+          "id": 0,
+          "name": "id",
+          "type": "INT",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": true,
+          "notNull": true,
+          "increment": true,
+          "comment": ""
+        },
+        {
+          "id": 1,
+          "name": "name",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": true,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "size": 50
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "orders",
+      "x": 1160,
+      "y": 230,
+      "color": "#3d8b40",
+      "comment": "Заказы",
+      "indices": [],
+      "fields": [
+        {
+          "id": 0,
+          "name": "id",
+          "type": "INT",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": true,
+          "notNull": true,
+          "increment": true,
+          "comment": ""
+        },
+        {
+          "id": 1,
+          "name": "order_date",
+          "type": "DATE",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": ""
+        },
+        {
+          "id": 2,
+          "name": "delivery_date",
+          "type": "DATE",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": ""
+        },
+        {
+          "id": 3,
+          "name": "pickup_point_id",
+          "type": "INT",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "FK -> pickup_points"
+        },
+        {
+          "id": 4,
+          "name": "user_id",
+          "type": "INT",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "FK -> users, NULL для заказов без клиента"
+        },
+        {
+          "id": 5,
+          "name": "receive_code",
+          "type": "INT",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "Код получения"
+        },
+        {
+          "id": 6,
+          "name": "status_id",
+          "type": "INT",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "FK -> order_statuses"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "order_items",
+      "x": 860,
+      "y": 620,
+      "color": "#3d8b40",
+      "comment": "Состав заказа",
+      "indices": [
+        {
+          "name": "uq_order_product",
+          "unique": true,
+          "fields": [
+            "order_id",
+            "product_id"
+          ]
+        }
+      ],
+      "fields": [
+        {
+          "id": 0,
+          "name": "id",
+          "type": "INT",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": true,
+          "notNull": true,
+          "increment": true,
+          "comment": ""
+        },
+        {
+          "id": 1,
+          "name": "order_id",
+          "type": "INT",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "FK -> orders, ON DELETE CASCADE"
+        },
+        {
+          "id": 2,
+          "name": "product_id",
+          "type": "INT",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "FK -> products"
+        },
+        {
+          "id": 3,
+          "name": "quantity",
+          "type": "INT",
+          "default": "",
+          "check": "quantity > 0",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": ""
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": 0,
+      "name": "fk_users_role_id_roles",
+      "startTableId": 1,
+      "startFieldId": 1,
+      "endTableId": 0,
+      "endFieldId": 0,
+      "cardinality": "many_to_one",
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action"
+    },
+    {
+      "id": 1,
+      "name": "fk_products_category_id_categories",
+      "startTableId": 6,
+      "startFieldId": 4,
+      "endTableId": 2,
+      "endFieldId": 0,
+      "cardinality": "many_to_one",
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action"
+    },
+    {
+      "id": 2,
+      "name": "fk_products_manufacturer_id_manufacturers",
+      "startTableId": 6,
+      "startFieldId": 5,
+      "endTableId": 3,
+      "endFieldId": 0,
+      "cardinality": "many_to_one",
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action"
+    },
+    {
+      "id": 3,
+      "name": "fk_products_supplier_id_suppliers",
+      "startTableId": 6,
+      "startFieldId": 6,
+      "endTableId": 4,
+      "endFieldId": 0,
+      "cardinality": "many_to_one",
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action"
+    },
+    {
+      "id": 4,
+      "name": "fk_products_unit_id_units",
+      "startTableId": 6,
+      "startFieldId": 7,
+      "endTableId": 5,
+      "endFieldId": 0,
+      "cardinality": "many_to_one",
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action"
+    },
+    {
+      "id": 5,
+      "name": "fk_orders_pickup_point_id_pickup_points",
+      "startTableId": 9,
+      "startFieldId": 3,
+      "endTableId": 7,
+      "endFieldId": 0,
+      "cardinality": "many_to_one",
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action"
+    },
+    {
+      "id": 6,
+      "name": "fk_orders_user_id_users",
+      "startTableId": 9,
+      "startFieldId": 4,
+      "endTableId": 1,
+      "endFieldId": 0,
+      "cardinality": "many_to_one",
+      "updateConstraint": "No action",
+      "deleteConstraint": "Set null"
+    },
+    {
+      "id": 7,
+      "name": "fk_orders_status_id_order_statuses",
+      "startTableId": 9,
+      "startFieldId": 6,
+      "endTableId": 8,
+      "endFieldId": 0,
+      "cardinality": "many_to_one",
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action"
+    },
+    {
+      "id": 8,
+      "name": "fk_order_items_order_id_orders",
+      "startTableId": 10,
+      "startFieldId": 1,
+      "endTableId": 9,
+      "endFieldId": 0,
+      "cardinality": "many_to_one",
+      "updateConstraint": "No action",
+      "deleteConstraint": "Cascade"
+    },
+    {
+      "id": 9,
+      "name": "fk_order_items_product_id_products",
+      "startTableId": 10,
+      "startFieldId": 2,
+      "endTableId": 6,
+      "endFieldId": 0,
+      "cardinality": "many_to_one",
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action"
+    }
+  ],
+  "notes": [],
+  "subjectAreas": [],
+  "types": [],
+  "enums": []
+}
